@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=str, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function snapCrackle(maxValue) {
+            let strings = [];
+            for (let i = 1; i <= maxValue; i++) {
+                if (isNumeroImpar(i) && isMultiploDe5(i)) {
+                    strings.push('SnapCrackle');
+                    continue;
+                }
+                if (isNumeroImpar(i)) {
+                    strings.push('Snap');
+                    continue;
+                }
+                if (isMultiploDe5(i)) {
+                    strings.push('Crackle');
+                    continue;
+                }
+                strings.push(i);
+            }
+
+            return strings.join(", ");
+        }
+
+        function snapCracklePrime(maxValue) {
+            let strings = [];
+            for (let i = 1; i <= maxValue; i++) {
+                if (isNumeroImpar(i) && isMultiploDe5(i)) {
+                    let text = concatenarComPrime(i, 'SnapCrackle');
+                    strings.push(text);
+                    continue;
+                }
+                if (isNumeroImpar(i)) {
+                    let text = concatenarComPrime(i, 'Snap');
+                    strings.push(text);
+                    continue;
+                }
+                if (isMultiploDe5(i)) {
+                    let text = concatenarComPrime(i, 'Crackle');
+                    strings.push(text);
+                    continue;
+                }
+                strings.push(i);
+            }
+
+            return strings.join(", ");
+        }
+
+        function isNumeroImpar(value) {
+            if (value % 2 !== 0) {
+                return true;
+            }
+            return false;
+        }
+
+        function isMultiploDe5(value) {
+            if (value % 5 === 0) {
+                return true;
+            }
+            return false;
+        }
+
+        function isPrime(value) {
+            for (let i = 2; i < value; i++) {
+                if (value % i === 0) {
+                    return false;
+                }
+            }
+
+            return value > 1;
+        }
+
+        function concatenarComPrime(value, text) {
+            if (isPrime(value)) {
+                return text + 'Prime'
+            }
+            return text;
+        }
+        
+    </script>
+</body>
+
+</html>
